@@ -74,17 +74,3 @@ curl --location 'localhost:8080/api/v1/calculate' \
 {
   "error": "Internal server error"
 }
-
-Структура проекта
-
-.
-├── cmd/
-│   └── calc_service/
-│       └── main.go
-├── internal/
-│   ├── calculator/
-│   │   └── calculator.go
-│   └── handlers/
-│       └── handlers.go
-├── README.md
-└── go.mod
