@@ -16,13 +16,17 @@
 Возможные ошибки
 
 При выполнении запроса могут возникнуть различные ошибки. Ниже приведены возможные ошибки и соответствующие коды состояния HTTP:
+
 Ошибка	Код состояния
+
 Неверное выражение	422
 Внутренняя ошибка сервера	500
 Деление на ноль	400
 Недостаточно операндов	400
 Неправильное использование скобок	400
-Установка и запуск
+
+Установка и запуск:
+
 Требования
 
     Go версии 1.18 или выше
@@ -39,7 +43,7 @@ cd <repo_name>
 go mod tidy
 go run ./cmd/calc_service/...
 
-Использование
+Использование:
 
 Сервис предоставляет один эндпоинт /api/v1/calculate, к которому отправляются POST-запросы с телом следующего формата:
 
@@ -49,11 +53,9 @@ go run ./cmd/calc_service/...
 
 Пример запроса
 
-curl --location 'localhost:8080/api/v1/calculate' \
---header 'Content-Type: application/json' \
---data '{
+{
   "expression": "2+2*2"
-}'
+}
 
 Ответы
 
@@ -66,11 +68,13 @@ curl --location 'localhost:8080/api/v1/calculate' \
 Ошибка при неверных данных
 
 {
-  "error": "Expression is not valid"
+  "err": "Error"
 }
 
-Внутренняя ошибка сервера
 
-{
-  "error": "Internal server error"
-}
+Могут быть такие ошибки:
+ "invalid expression"
+ "invalid parentheses"
+ "invalid operator"
+ "invalid character"
+ "division by zero"
