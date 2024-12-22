@@ -3,9 +3,8 @@ package main
 import (
     "log"
     "net/http"
-
     "github.com/gorilla/mux"
-    "github.com/user/repo/internal/handlers"
+    "github.com/Dided08/Calculator/internal/handlers"
 )
 
 func main() {
