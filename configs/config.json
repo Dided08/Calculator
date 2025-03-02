@@ -1,0 +1,6 @@
+{
+    "port": 8080,
+    "db_url": "mongodb://localhost:27017",
+    "db_name": "calculator_db",
+    "logging_level": "info"
+  }
