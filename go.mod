@@ -1,4 +1,4 @@
-module github.com/Dided08/Calcurator
+module github.com/Dided08/Calculator
 
 go 1.23.1
 
