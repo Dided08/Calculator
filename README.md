@@ -9,44 +9,44 @@ Arithmetic Web Service
 
 Структура проекта
 
-.
-├── cmd/                  # Команды для запуска оркестратора и агентов
-│   ├── agent/
-│   │   └── main.go       # Точка входа для запуска агента
-│   └── orchestrator/
-│       └── main.go       # Точка входа для запуска оркестратора
-├── config/                # Конфигурационный файл и утилиты для загрузки настроек
-│   ├── config.go
-│   └── config_test.go
-├── errors/                # Пакет для обработки ошибок
-│   └── errors.go
-├── internal/              # Внутренние пакеты и сервисы
-│   ├── agent/             # Код для агента
-│   │   ├── agent.go
-│   │   └── agent_test.go
-│   ├── calculator/        # Сервис для вычислений
-│   │   └── calculator.go
-│   ├── orchestrator/      # Сервис для оркестратора
-│   │   ├── orchestrator.go
-│   │   └── orchestrator_test.go
-│   ├── parser/            # Парсер арифметических выражений
-│   │   ├── parser.go
-│   │   └── parser_test.go
-│   ├── router/            # Маршруты и контроллеры
-│   │   └── router.go
-│   └── storage/           # Хранилище данных
-│       ├── storage.go
-│       └── storage_test.go
-├── tests/                 # Папка с тестами
-│   ├── calculator_test.go
-│   ├── handler_test.go
-│   └── middleware_test.go
-├── Dockerfile             # Файл для сборки образа Docker
-├── README.md              # Этот файл
-└── go.mod                 # Менеджмент зависимостей Go
+    .
+    ├── cmd/                  # Команды для запуска оркестратора и агентов
+    │   ├── agent/
+    │   │   └── main.go       # Точка входа для запуска агента
+    │   └── orchestrator/
+    │       └── main.go       # Точка входа для запуска оркестратора
+    ├── config/                # Конфигурационный файл и утилиты для загрузки настроек
+    │   ├── config.go
+    │   └── config_test.go
+    ├── errors/                # Пакет для обработки ошибок
+    │   └── errors.go
+    ├── internal/              # Внутренние пакеты и сервисы
+    │   ├── agent/             # Код для агента
+    │   │   ├── agent.go
+    │   │   └── agent_test.go
+    │   ├── calculator/        # Сервис для вычислений
+    │   │   └── calculator.go
+    │   ├── orchestrator/      # Сервис для оркестратора
+    │   │   ├── orchestrator.go
+    │   │   └── orchestrator_test.go
+    │   ├── parser/            # Парсер арифметических выражений
+    │   │   ├── parser.go
+    │   │   └── parser_test.go
+    │   ├── router/            # Маршруты и контроллеры
+    │   │   └── router.go
+    │   └── storage/           # Хранилище данных
+    │       ├── storage.go
+    │       └── storage_test.go
+    ├── tests/                 # Папка с тестами
+    │   ├── calculator_test.go
+    │   ├── handler_test.go
+    │   └── middleware_test.go
+    ├── Dockerfile             # Файл для сборки образа Docker
+    ├── README.md              # Этот файл
+    └── go.mod                 # Менеджмент зависимостей Go
 
-Инструкция по запуску проекта
-Требования
+Инструкция по запуску проекта:
+Требования:
 
 Перед запуском убедитесь, что у вас установлены:
 
@@ -57,84 +57,74 @@ Arithmetic Web Service
 
     Клонируйте репозиторий:
 
-git clone https://github.com/<your-repo>/arithmetic-web-service.git
+    git clone https://github.com/<your-repo>/arithmetic-web-service.git
 
 Перейдите в директорию проекта:
 
-cd arithmetic-web-service
+    cd arithmetic-web-service
 
 Установите зависимости:
 
-go mod download
+    go mod tidy
 
 Запустите оркестр и агента:
 
-go run ./cmd/orchestrator/main.go &
-go run ./cmd/agent/main.go &
+    go run ./cmd/orchestrator/main.go &
+    go run ./cmd/agent/main.go &
 
-Запуск проекта с помощью Docker
-
-    Соберите образ Docker:
-
-docker build -t arithmetic-web-service .
-
-Запустите контейнеры оркестратора и агента:
-
-docker run -d -p 8000:8000 --name orchestrator arithmetic-web-service orchestrator
-docker run -d -p 8080:8080 --name agent arithmetic-web-service agent
 
 Примеры запусков и ошибок
 Добавление выражения для вычисления
 
-curl --location --request POST 'localhost:8000/api/v1/calculate' \
---header 'Content-Type: application/json' \
---data-raw '{
-    "expression": "2 + 2"
-}'
+    curl --location --request POST 'localhost:8000/api/v1/calculate' \
+    --header 'Content-Type: application/json' \
+    --data-raw '{
+        "expression": "2 + 2"
+    }'
 
 Ответ:
 
-{
-    "id": 1
-}
+    {
+        "id": 1
+    }
 
 Получение списка выражений
 
-curl --location 'localhost:8000/api/v1/expressions'
+    curl --location 'localhost:8000/api/v1/expressions'
 
 Ответ:
 
-{
-    "expressions": [
-        {
-            "id": 1,
-            "expression": "2 + 2",
-            "status": "COMPLETED",
-            "result": 4
-        }
-    ]
-}
+    {
+        "expressions": [
+            {
+                "id": 1,
+                "expression": "2 + 2",
+                "status": "COMPLETED",
+                "result": 4
+            }
+        ]
+    }
 
 Ошибки
 
-    Неправильное выражение:
+Неправильное выражение:
 
-curl --location --request POST 'localhost:8000/api/v1/calculate' \
---header 'Content-Type: application/json' \
---data-raw '{
-    "expression": "2 +"
-}'
+    curl --location --request POST 'localhost:8000/api/v1/calculate' \
+    --header 'Content-Type: application/json' \
+    --data-raw '{
+        "expression": "2 +"
+    }'
 
 Ответ:
 
-{
-    "error": "Invalid expression"
-}
+    {
+        "error": "Invalid expression"
+    }
 
 Запуск тестов
 
 Чтобы запустить тесты, выполните следующую команду:
 
-go test ./... -coverprofile=coverage.out
+    go test ./... -coverprofile=coverage.out
 
 Тесты проверяют функциональность сервисов, парсеров и хранилищ данных.
