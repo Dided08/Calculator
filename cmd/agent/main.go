@@ -6,7 +6,7 @@ import (
     "log"
     "os"
     "time"
-	"os/signal"
+    "os/signal"
 
     "github.com/Dided08/Calculator/internal/agent"
 )
