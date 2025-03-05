@@ -3,7 +3,7 @@ package tests
 import (
     "testing"
 
-    "github.com/your-project/internal/calculator"
+    "github.com/Dided08/Calculator/internal/calculator"
 )
 
 // TestCalc проверяет корректность вычислений для различных арифметических выражений.
