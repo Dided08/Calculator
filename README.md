@@ -1,5 +1,5 @@
 # Calculator
-[Описание проекта]()
+Описание проекта:
 
 Это распределённая система для вычисления арифметических выражений. Система состоит из следующих компонентов:
 
@@ -67,11 +67,16 @@
 
 Запустите оркестр и агента:
 
-    go run ./cmd/orchestrator/main.go &
-    go run ./cmd/agent/main.go &
+    go run ./cmd/orchestrator/main.go 
+    go run ./cmd/agent/main.go 
+    
+Конфигурация:
+
+Для конфигурации порта и URL используйте файл .env
 
 
-Примеры запусков и ошибок
+Примеры запусков и ошибок:
+
 Добавление выражения для вычисления
 
     curl --location --request POST 'localhost:8000/api/v1/calculate' \
@@ -80,7 +85,7 @@
         "expression": "2 + 2"
     }'
 
-Ответ:
+Ответ(201):
 
     {
         "id": 1
@@ -90,7 +95,7 @@
 
     curl --location 'localhost:8000/api/v1/expressions'
 
-Ответ:
+Ответ(200):
 
     {
         "expressions": [
@@ -105,24 +110,56 @@
 
 Ошибки
 
-Неправильное выражение:
+Неправильное выражение(422):
 
     curl --location --request POST 'localhost:8000/api/v1/calculate' \
     --header 'Content-Type: application/json' \
-    --data-raw '{
-        "expression": "2 +"
+    --data '{
+        "expression": "2++4"
     }'
 
 Ответ:
 
     {
-        "error": "Invalid expression"
+        "error": "Ошибка разбора выражения: неожиданный токен: +"
+    }
+    
+Деление на ноль(422):
+
+    curl --location --request POST 'localhost:8000/api/v1/calculate' \
+    --header 'Content-Type: application/json' \
+    --data '{
+        "expression": "2/0"
+    }'
+    
+Ответ:
+
+    {
+        "error": "Ошибка разбора выражения: неожиданный токен: +"
+    }
+
+3. Выражение не найдено (404)
+
+Запрос:
+
+    curl -i --location 'http://localhost:8080/api/v1/expressions/999'
+
+Ответ:
+
+    {
+        "error": "Выражение не найдено"
     }
 
 Запуск тестов
 
 Чтобы запустить тесты, выполните следующую команду:
 
-    go test ./... -coverprofile=coverage.out
+    go test ./...
 
 Тесты проверяют функциональность сервисов, парсеров и хранилищ данных.
+
+Логирование
+
+Логирование записывается как в консоль, так и в файлы logs/app.log (основные логи) и logs/error.log (ошибки)
+
+Уровень логирования можно настроить в файле .env
