@@ -1,4 +1,4 @@
-Arithmetic Web Service
+Calculator
 Описание проекта
 
 Это распределённая система для вычисления арифметических выражений. Система состоит из следующих компонентов:
@@ -40,8 +40,6 @@ Arithmetic Web Service
     ├── tests/                 # Папка с тестами
     │   ├── calculator_test.go
     │   ├── handler_test.go
-    │   └── middleware_test.go
-    ├── Dockerfile             # Файл для сборки образа Docker
     ├── README.md              # Этот файл
     └── go.mod                 # Менеджмент зависимостей Go
 
@@ -57,11 +55,11 @@ Arithmetic Web Service
 
     Клонируйте репозиторий:
 
-    git clone https://github.com/<your-repo>/arithmetic-web-service.git
+    git clone https://github.com/Dided08/Calculator
 
 Перейдите в директорию проекта:
 
-    cd arithmetic-web-service
+    cd Calculator
 
 Установите зависимости:
 
