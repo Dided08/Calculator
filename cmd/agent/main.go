@@ -8,7 +8,7 @@ import (
     "time"
 	"os/signal"
 
-    "github.com/your-project/internal/agent"
+    "github.com/Dided08/Calculator/internal/agent"
 )
 
 func main() {
