@@ -1,0 +1,42 @@
+syntax = "proto3";
+
+package api;
+
+option go_package = "github.com/Dided08/Calculator/api";
+
+// Сервис, который предоставляет задания агенту и принимает результаты
+service AgentService {
+  // Агент запрашивает задачу
+  rpc GetTask (GetTaskRequest) returns (TaskResponse);
+
+  // Агент отправляет результат выполненной задачи
+  rpc SubmitResult (TaskResultRequest) returns (SubmitResultResponse);
+}
+
+// Запрос на получение задачи
+message GetTaskRequest {}
+
+// Ответ с задачей
+message TaskResponse {
+  Task task = 1;
+}
+
+// Структура задачи
+message Task {
+  int32 id = 1;
+  int32 expression_id = 2;
+  string operation = 3;
+  string arg1 = 4;
+  string arg2 = 5;
+}
+
+// Запрос с результатом выполнения задачи
+message TaskResultRequest {
+  int32 id = 1;
+  double result = 2;
+}
+
+// Ответ на результат выполнения
+message SubmitResultResponse {
+  string message = 1;
+}
