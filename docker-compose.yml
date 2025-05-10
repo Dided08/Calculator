@@ -1,0 +1,36 @@
+version: '3.9'
+
+services:
+  orchestrator:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: orchestrator
+    command: ["./orchestrator"]
+    ports:
+      - "8080:8080"  # HTTP API
+      - "50051:50051"  # gRPC
+    volumes:
+      - ./data/orchestrator:/app/data  # для SQLite
+    depends_on:
+      - agent1
+    environment:
+      - ORCH_CONFIG=/app/config/orchestrator.yaml
+
+  agent1:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: agent1
+    command: ["./agent"]
+    environment:
+      - AGENT_CONFIG=/app/config/agent.yaml
+
+  agent2:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: agent2
+    command: ["./agent"]
+    environment:
+      - AGENT_CONFIG=/app/config/agent.yaml
