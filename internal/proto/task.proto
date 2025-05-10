@@ -1,0 +1,36 @@
+syntax = "proto3";
+
+package proto;
+
+option go_package = "github.com/Dided08/Calculator/proto";
+
+// Task представляет задачу, отправляемую агенту
+message Task {
+  int32 id = 1;
+  int32 expression_id = 2;
+  string operation = 3;
+  string arg1 = 4;
+  string arg2 = 5;
+}
+
+// Запрос результата от агента
+message ResultRequest {
+  int32 id = 1;
+  double result = 2;
+}
+
+// Ответ с задачей
+message TaskResponse {
+  Task task = 1;
+}
+
+// Пустое сообщение (для запроса задач и ответа на приём результата)
+message Empty {}
+
+service TaskService {
+  // Агент запрашивает задачу
+  rpc GetTask (Empty) returns (TaskResponse);
+
+  // Агент отправляет результат
+  rpc SubmitResult (ResultRequest) returns (Empty);
+}
