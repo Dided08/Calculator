@@ -1,0 +1,4 @@
+http_port: "8080"       # Порт, на котором запускается HTTP API для пользователей
+grpc_port: "50051"      # Порт GRPC-сервера, через который агенты получают задачи
+database_path: "db/calculator.db"  # Путь к SQLite базе данных
+log_level: "info"       # Уровень логирования: debug, info, warn, error
