@@ -1,4 +1,0 @@
-orchestrator_address: "localhost:50051"  # Адрес GRPC-сервера оркестратора
-poll_interval_seconds: 2                # Интервал опроса оркестратора на наличие задач
-log_level: "info"                       # Уровень логирования: debug, info, warn, error
-agent_id: "agent-1"                     # Уникальный идентификатор агента (опционально)
