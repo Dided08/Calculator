@@ -4,8 +4,8 @@ import (
 	"context"
 	"testing"
 
-	"github.com/Andreyka-coder9192/calc_go/internal"
-	"github.com/Andreyka-coder9192/calc_go/proto/calc"
+	"github.com/Dided08/Calculator/internal"
+	"github.com/Dided08/Calculator/proto/calc"
 	"github.com/jmoiron/sqlx"
 	_ "github.com/mattn/go-sqlite3"
 	"google.golang.org/grpc/codes"

@@ -6,7 +6,7 @@ import (
 	"strings"
 	"unicode"
 
-	"github.com/Andreyka-coder9192/calc_go/pkg/calculator"
+	"github.com/Dided08/Calculator/pkg/calculator"
 )
 
 type ASTNode struct {

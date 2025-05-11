@@ -7,8 +7,8 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/Andreyka-coder9192/calc_go/pkg/calculator"
-	"github.com/Andreyka-coder9192/calc_go/proto/calc"
+	"github.com/Dided08/Calculator/pkg/calculator"
+	"github.com/Dided08/Calculator/proto/calc"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/credentials/insecure"

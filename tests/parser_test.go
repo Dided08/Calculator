@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/Andreyka-coder9192/calc_go/internal"
+	"github.com/Dided08/Calculator/internal"
 )
 
 func evalAST(node *application.ASTNode) (float64, error) {

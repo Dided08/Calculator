@@ -3,7 +3,7 @@ package main
 import (
 	"log"
 
-	"github.com/Andreyka-coder9192/calc_go/internal"
+	"github.com/Dided08/Calculator/internal"
 )
 
 func main() {

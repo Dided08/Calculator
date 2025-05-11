@@ -7,8 +7,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/Andreyka-coder9192/calc_go/internal"
-	"github.com/Andreyka-coder9192/calc_go/proto/calc"
+	"github.com/Dided08/Calculator/internal"
+	"github.com/Dided08/Calculator/proto/calc"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"

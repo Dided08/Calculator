@@ -12,7 +12,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/Andreyka-coder9192/calc_go/proto/calc"
+	"github.com/Dided08/Calculator/proto/calc"
 	"github.com/jmoiron/sqlx"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/codes"
