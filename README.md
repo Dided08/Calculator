@@ -73,7 +73,7 @@ docker-compose up --build
 Если выводит project name must not be empty, то пропишите:
 ```bash
 docker build -f Dockerfile.orchestrator -t orchestrator .
-docker-compose up --build
+docker-compose -p project up --build
 ```
    
 
