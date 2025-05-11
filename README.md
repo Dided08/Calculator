@@ -14,8 +14,8 @@ graph TD
 1. Клонирование репозитория
 
 ```bash
-git clone https://github.com/Andreyka-coder9192/calc_goV3.git
-cd calc_goV3
+git clone https://github.com/Dided08/Calculator.git
+cd Calculator
 ```
    
 
@@ -67,13 +67,13 @@ go run .\cmd\agent\main.go
 
 6. Docker Compose (опционально)
 ```bash
-docker-compose up --build'
+docker-compose up --build
 ```
 
 Если выводит project name must not be empty, то пропишите:
 ```bash
 docker build -f Dockerfile.orchestrator -t orchestrator .
-docker-compose up --build'
+docker-compose up --build
 ```
    
 
