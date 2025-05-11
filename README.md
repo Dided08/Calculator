@@ -157,7 +157,7 @@ Authorization: Bearer <token>
 
 ### Тестирование
 ```bash
-go test -v ./cmd/agent
+go test -v ./cmd/...
 ```
 
 ## Переменные окружения
