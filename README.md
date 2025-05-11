@@ -50,16 +50,16 @@ go run .\cmd\orchestrator\main.go
    
 Linux/macOS
 ```bash
-        export COMPUTING_POWER=4
-        export ORCHESTRATOR_URL="localhost:8080"
-        go run ./cmd/agent/main.go
+export COMPUTING_POWER=4
+export ORCHESTRATOR_URL="localhost:8080"
+go run ./cmd/agent/main.go
 ```
 
 Windows PowerShell
 ```bash
-    $env:COMPUTING_POWER=4
-    $env:ORCHESTRATOR_URL="localhost:8080"
-    go run .\cmd\agent\main.go
+$env:COMPUTING_POWER=4
+$env:ORCHESTRATOR_URL="localhost:8080"
+go run .\cmd\agent\main.go
 ```
 5. Запуск фронтенда
 
@@ -67,12 +67,13 @@ Windows PowerShell
 
 6. Docker Compose (опционально)
 ```bash
-        docker-compose up --build'
+docker-compose up --build'
 ```
 
 Если выводит project name must not be empty, то пропишите:
 ```bash
 docker build -f Dockerfile.orchestrator -t orchestrator .
+docker-compose up --build'
 ```
    
 
@@ -93,7 +94,7 @@ Authorization: Bearer <token>
     
 Ответ (201 Created)
 ```json
-    {"id": 1}
+{"id": 1}
 ```
 
 ### GET /api/v1/expressions
@@ -107,13 +108,13 @@ Authorization: Bearer <token>
 ```
 
 Ответ (200 OK)
-```json
-    {
-      "expressions": [
-        {"id":1, "expression":"(2+3)*4-10/2", "status":"done", "result":15}
-      ]
-    }
-```
+   ```json
+{
+  "expressions": [
+     {"id":1, "expression":"(2+3)*4-10/2", "status":"done", "result":15}
+  ]
+}
+   ```
 
 ### GET /api/v1/expressions/{id}
 
@@ -127,7 +128,7 @@ Authorization: Bearer <token>
 
 Ответ (200 OK)
 ```json
-    {"expression": {"id":1, "status":"done", "result":15}}
+{"expression": {"id":1, "status":"done", "result":15}}
 ```
 
 ## Примеры использования
@@ -156,7 +157,7 @@ Authorization: Bearer <token>
 
 ### Тестирование
 ```bash
-    go test -v ./cmd/agent
+go test -v ./cmd/agent
 ```
 
 ## Переменные окружения
